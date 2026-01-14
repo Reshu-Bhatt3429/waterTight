@@ -1,0 +1,223 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.navbar--scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar--scrolled .navbar__top-bar {
+    display: none;
+}
+
+.navbar__top-bar {
+    background: var(--slate-900);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar__top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.navbar__hours {
+    color: var(--slate-400);
+}
+
+.navbar__contact-info {
+    display: flex;
+    gap: var(--space-6);
+}
+
+.navbar__contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--slate-300);
+    transition: color var(--transition-fast);
+}
+
+.navbar__contact-link:hover {
+    color: var(--primary-400);
+}
+
+.navbar__main {
+    padding: var(--space-4) 0;
+}
+
+.navbar__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.navbar__logo-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary-400);
+}
+
+.navbar__logo-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar__logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.navbar__logo-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navbar__logo-tagline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--slate-400);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.navbar__links {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.navbar__link {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--slate-200);
+    position: relative;
+    padding: var(--space-2) 0;
+}
+
+.navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-base);
+}
+
+.navbar__link:hover::after {
+    width: 100%;
+}
+
+.navbar__link:hover {
+    color: var(--slate-50);
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.navbar__mobile-toggle {
+    display: none;
+    background: transparent;
+    color: var(--slate-100);
+    font-size: 1.5rem;
+    padding: var(--space-2);
+}
+
+.navbar__mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--slate-900);
+    padding: var(--space-20) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    pointer-events: none;
+}
+
+.navbar__mobile-menu--open {
+    pointer-events: auto;
+}
+
+.navbar__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.navbar__mobile-link {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--slate-200);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar__mobile-link:hover {
+    color: var(--primary-400);
+}
+
+@media (max-width: 1024px) {
+    .navbar__links {
+        display: none;
+    }
+
+    .navbar__actions {
+        display: none;
+    }
+
+    .navbar__mobile-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar__top-content {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .navbar__contact-info {
+        gap: var(--space-4);
+    }
+
+    .navbar__logo-name {
+        font-size: 1.25rem;
+    }
+
+    .navbar__logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -1,0 +1,101 @@
+.why-replace {
+    position: relative;
+}
+
+.why-replace__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.why-replace__grid .benefit-card:nth-child(4),
+.why-replace__grid .benefit-card:nth-child(5) {
+    grid-column: span 1;
+}
+
+@media (min-width: 1025px) {
+    .why-replace__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .why-replace__grid .benefit-card:nth-child(4) {
+        grid-column: 1 / 2;
+        margin-left: 50%;
+        width: calc(200% - var(--space-3));
+    }
+
+    .why-replace__grid .benefit-card:nth-child(5) {
+        grid-column: 2 / 4;
+        margin-right: 50%;
+        width: calc(200% - var(--space-3));
+        margin-left: calc(-100% + var(--space-3));
+    }
+}
+
+.benefit-card {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-base);
+}
+
+.benefit-card:hover {
+    border-color: var(--primary-500);
+    box-shadow: var(--shadow-glow);
+}
+
+.benefit-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: var(--space-5);
+}
+
+.benefit-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--slate-100);
+    margin-bottom: var(--space-3);
+}
+
+.benefit-card__description {
+    color: var(--slate-400);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .why-replace__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-replace__grid .benefit-card:nth-child(4),
+    .why-replace__grid .benefit-card:nth-child(5) {
+        width: 100%;
+        margin: 0;
+    }
+
+    .why-replace__grid .benefit-card:last-child {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-replace__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-replace__grid .benefit-card:last-child {
+        grid-column: 1;
+    }
+
+    .benefit-card {
+        padding: var(--space-6);
+    }
+}

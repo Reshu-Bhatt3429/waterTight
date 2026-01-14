@@ -1,0 +1,202 @@
+.contact {
+    position: relative;
+    background: var(--slate-950);
+}
+
+.contact__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.contact__bg-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80%;
+    background: radial-gradient(ellipse 50% 50% at 50% 100%, rgba(59, 130, 246, 0.1), transparent);
+}
+
+.contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-8);
+    align-items: start;
+}
+
+.contact__form-wrapper {
+    padding: var(--space-8);
+}
+
+.contact__form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--slate-100);
+    margin-bottom: var(--space-6);
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.contact__form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+}
+
+.contact__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.contact__form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--slate-300);
+}
+
+.contact__form-group input,
+.contact__form-group select,
+.contact__form-group textarea {
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    color: var(--slate-100);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.contact__form-group input::placeholder,
+.contact__form-group textarea::placeholder {
+    color: var(--slate-500);
+}
+
+.contact__form-group input:focus,
+.contact__form-group select:focus,
+.contact__form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.contact__form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: var(--space-10);
+}
+
+.contact__form-group select option {
+    background: var(--slate-800);
+    color: var(--slate-100);
+}
+
+.contact__form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact__submit {
+    width: 100%;
+    margin-top: var(--space-2);
+}
+
+.contact__submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.contact__info-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    transition: all var(--transition-base);
+}
+
+.contact__info-card:hover {
+    border-color: var(--primary-500);
+}
+
+.contact__info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1.25rem;
+}
+
+.contact__info-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--slate-100);
+    margin-bottom: var(--space-1);
+}
+
+.contact__info-content a {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-400);
+}
+
+.contact__info-content a:hover {
+    color: var(--primary-300);
+}
+
+.contact__info-content p {
+    font-size: 0.875rem;
+    color: var(--slate-400);
+    margin-top: var(--space-1);
+}
+
+@media (max-width: 1024px) {
+    .contact__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact__form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form-wrapper {
+        padding: var(--space-6);
+    }
+
+    .contact__info {
+        grid-template-columns: 1fr;
+    }
+}

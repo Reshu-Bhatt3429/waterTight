@@ -1,0 +1,78 @@
+.roofing-systems {
+    position: relative;
+}
+
+.roofing-systems__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.system-card {
+    padding: var(--space-6);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.system-card:hover {
+    border-color: var(--primary-500);
+    box-shadow: var(--shadow-glow);
+}
+
+.system-card__abbr {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-xl);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-5);
+    box-shadow: var(--shadow-lg);
+}
+
+.system-card__name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--slate-100);
+    margin-bottom: var(--space-3);
+}
+
+.system-card__description {
+    color: var(--slate-400);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-5);
+}
+
+.system-card__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+}
+
+.system-card__feature {
+    padding: var(--space-1) var(--space-3);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--slate-300);
+}
+
+@media (max-width: 1024px) {
+    .roofing-systems__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .roofing-systems__grid {
+        grid-template-columns: 1fr;
+    }
+}
