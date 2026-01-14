@@ -1,5 +1,6 @@
 .why-replace {
     position: relative;
+    overflow: hidden;
 }
 
 .why-replace__grid {
@@ -8,27 +9,24 @@
     gap: var(--space-6);
 }
 
-.why-replace__grid .benefit-card:nth-child(4),
-.why-replace__grid .benefit-card:nth-child(5) {
-    grid-column: span 1;
-}
-
+/* Desktop: Center last two cards */
 @media (min-width: 1025px) {
     .why-replace__grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .why-replace__grid .benefit-card:nth-child(1),
+    .why-replace__grid .benefit-card:nth-child(2),
+    .why-replace__grid .benefit-card:nth-child(3) {
+        grid-column: span 2;
     }
 
     .why-replace__grid .benefit-card:nth-child(4) {
-        grid-column: 1 / 2;
-        margin-left: 50%;
-        width: calc(200% - var(--space-3));
+        grid-column: 2 / 4;
     }
 
     .why-replace__grid .benefit-card:nth-child(5) {
-        grid-column: 2 / 4;
-        margin-right: 50%;
-        width: calc(200% - var(--space-3));
-        margin-left: calc(-100% + var(--space-3));
+        grid-column: 4 / 6;
     }
 }
 
@@ -37,6 +35,7 @@
     display: flex;
     flex-direction: column;
     transition: all var(--transition-base);
+    overflow: hidden;
 }
 
 .benefit-card:hover {
@@ -55,6 +54,7 @@
     color: white;
     font-size: 1.5rem;
     margin-bottom: var(--space-5);
+    flex-shrink: 0;
 }
 
 .benefit-card__title {
@@ -70,15 +70,10 @@
     line-height: 1.7;
 }
 
+/* Tablet: 2 columns */
 @media (max-width: 1024px) {
     .why-replace__grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .why-replace__grid .benefit-card:nth-child(4),
-    .why-replace__grid .benefit-card:nth-child(5) {
-        width: 100%;
-        margin: 0;
     }
 
     .why-replace__grid .benefit-card:last-child {
@@ -86,16 +81,33 @@
     }
 }
 
-@media (max-width: 768px) {
+/* Mobile: 1 column */
+@media (max-width: 640px) {
     .why-replace__grid {
         grid-template-columns: 1fr;
     }
 
+    .why-replace__grid .benefit-card,
     .why-replace__grid .benefit-card:last-child {
         grid-column: 1;
     }
 
     .benefit-card {
-        padding: var(--space-6);
+        padding: var(--space-5);
+    }
+
+    .benefit-card__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+        margin-bottom: var(--space-4);
+    }
+
+    .benefit-card__title {
+        font-size: 1.125rem;
+    }
+
+    .benefit-card__description {
+        font-size: 0.875rem;
     }
 }

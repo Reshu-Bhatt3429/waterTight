@@ -58,7 +58,7 @@
 }
 
 .hero__title {
-    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--space-6);
@@ -66,7 +66,7 @@
 }
 
 .hero__description {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--slate-400);
     max-width: 600px;
     margin: 0 auto var(--space-8);
@@ -105,6 +105,7 @@
     border: 1px solid var(--glass-border);
     color: var(--primary-400);
     font-size: 1.25rem;
+    flex-shrink: 0;
 }
 
 .hero__stat-content {
@@ -149,15 +150,21 @@
     background: linear-gradient(to bottom, var(--primary-400), transparent);
 }
 
+/* Tablet */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 120px;
+        padding-top: 100px;
         min-height: auto;
-        padding-bottom: var(--space-16);
+        padding-bottom: var(--space-12);
     }
 
-    .hero__description {
-        font-size: 1.0625rem;
+    .hero__badge {
+        font-size: 0.75rem;
+        padding: var(--space-1) var(--space-3);
+    }
+
+    .hero__ctas {
+        margin-bottom: var(--space-10);
     }
 
     .hero__stats {
@@ -169,8 +176,18 @@
         text-align: center;
     }
 
+    .hero__stat-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.125rem;
+    }
+
     .hero__stat-content {
         align-items: center;
+    }
+
+    .hero__stat-value {
+        font-size: 1.25rem;
     }
 
     .hero__scroll-indicator {
@@ -178,13 +195,57 @@
     }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+    .hero {
+        padding-top: 80px;
+        padding-bottom: var(--space-8);
+    }
+
+    .hero__badge {
+        margin-bottom: var(--space-4);
+    }
+
+    .hero__title {
+        margin-bottom: var(--space-4);
+        font-size: 2rem;
+    }
+
+    .hero__description {
+        font-size: 0.9375rem;
+        margin-bottom: var(--space-6);
+        line-height: 1.6;
+    }
+
     .hero__ctas {
         flex-direction: column;
         align-items: stretch;
+        gap: var(--space-3);
+        margin-bottom: var(--space-8);
     }
 
     .hero__ctas .btn {
         width: 100%;
+        justify-content: center;
+        padding: var(--space-3) var(--space-4);
+        font-size: 0.9375rem;
+    }
+
+    .hero__stats {
+        gap: var(--space-4);
+    }
+
+    .hero__stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .hero__stat-value {
+        font-size: 1.125rem;
+    }
+
+    .hero__stat-label {
+        font-size: 0.75rem;
     }
 }
